@@ -4,13 +4,12 @@ import itertools
 
 
 def three_measurement_increases_counter(measurements: List[int]) -> int:
-    last_sum: int = 999999999  # Arbitrary large number
-    counter: int = 0
-    for m1, m2, m3 in triplewise(measurements):
-        if m1 + m2 + m3 > last_sum:
-            counter += 1
-        last_sum = m1 + m2 + m3
-    return counter
+    return sum(
+        three_sum2 > three_sum1  # type: ignore
+        for three_sum1, three_sum2 in itertools.pairwise(
+            map(sum, triplewise(measurements))
+        )
+    )
 
 
 def triplewise(iterable: Iterable[Any]) -> Generator[tuple[Any, Any, Any], None, None]:
