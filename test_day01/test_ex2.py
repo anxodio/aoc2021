@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Iterable, Any
+from typing import List, Iterable, Any, Generator
 import itertools
 
 
@@ -13,7 +13,8 @@ def three_measurement_increases_counter(measurements: List[int]) -> int:
     return counter
 
 
-def triplewise(iterable: Iterable[Any]) -> tuple[Any, Any, Any]:
+def triplewise(iterable: Iterable[Any]) -> Generator[tuple[Any, Any, Any], None, None]:
+    iterable = iter(iterable)
     "Return overlapping triplets from an iterable"
     # Recipe from https://docs.python.org/3/library/itertools.html
     # triplewise('ABCDEFG') -> ABC BCD CDE DEF EFG
