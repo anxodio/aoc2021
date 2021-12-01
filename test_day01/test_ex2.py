@@ -1,7 +1,6 @@
 from pathlib import Path
 from typing import List, Iterable, Any
 import itertools
-import functools
 
 
 def three_measurement_increases_counter(measurements: List[int]) -> int:
