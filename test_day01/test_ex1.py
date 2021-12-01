@@ -5,7 +5,7 @@ import itertools
 
 def measurement_increases_counter(measurements: List[int]) -> int:
     return sum(
-        measurement2 > measurement1 
+        measurement2 > measurement1
         for measurement1, measurement2 in itertools.pairwise(measurements)
     )
 
