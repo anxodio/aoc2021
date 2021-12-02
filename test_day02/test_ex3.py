@@ -3,11 +3,11 @@ from typing import List, Tuple
 
 
 def get_final_multiplied_position(instructions: List[str]) -> int:
-    horitzontal, depth = 0, 0
+    horizontal, depth = 0, 0
     for instruction in instructions:
         delta = _calculate_delta(instruction)
-        horitzontal, depth = horitzontal + delta[0], depth + delta[1]
-    return horitzontal * depth
+        horizontal, depth = horizontal + delta[0], depth + delta[1]
+    return horizontal * depth
 
 
 def _calculate_delta(instruction: str) -> Tuple[int, int]:
